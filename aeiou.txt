@@ -1,0 +1,21 @@
+%{
+#include<stdio.h>
+int c=0,v=0;
+char ch[10];
+%}
+%%
+[\t\n ] ;
+[aeiouAEIOU] {v++;}
+[^aeiouAEIOU] {c++;}  
+%%
+int main()
+{
+printf("Enter the string:\n");
+yylex();
+printf("vowels:%d\n",v);
+printf("consonants:%d",c);
+}
+int yywrap()
+{
+return 1;
+}
